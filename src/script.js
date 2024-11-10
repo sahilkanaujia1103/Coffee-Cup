@@ -28,7 +28,15 @@ const sizes = {
     width: window.innerWidth,
     height: window.innerHeight
 }
-
+window.addEventListener('dblclick', () => {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen().catch(err => {
+        alert(`Error attempting to enable full-screen mode: ${err.message}`);
+      });
+    } else {
+      document.exitFullscreen();
+    }
+  });
 window.addEventListener('resize', () =>
 {
     // Update sizes
